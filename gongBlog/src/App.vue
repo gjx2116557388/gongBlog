@@ -36,7 +36,13 @@ const handleSelect = (key: string, keyPath: string[]) => {
               </el-menu-item>
               <el-menu-item index="3">测试</el-menu-item>
               <el-menu-item index="4">关于</el-menu-item>
-              <div class="switch">
+          </el-menu>
+      </div>
+    </el-affix>
+    <div class="main">
+     <div class="router-view">
+      <!-- 暗黑模式切换 -->
+      <div class="switch">
                 <el-switch
                     v-model="isDark"
                     style="--el-switch-on-color: #2C2C2C; --el-switch-off-color: #DCDFE6;color:red"
@@ -45,12 +51,9 @@ const handleSelect = (key: string, keyPath: string[]) => {
                     :active-icon="Sunny"
                     :inactive-icon="Moon"
                 />
-              </div>
-          </el-menu>
+                {{isDark?"Dark":"Light"}}
       </div>
-    </el-affix>
-    <div class="main">
-     <div class="router-view">
+      <!-- 路由 -->
       <router-view></router-view>
      </div>
      <div class="info-wraps">

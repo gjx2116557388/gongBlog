@@ -5,7 +5,6 @@
                 <li class="infinite-list-item" v-for="(item,index) in data[currentPage]" :key="index">
                     <h2 style="color:var(--el-menu-text-color);">{{item.name}}</h2>
                     <br />
-                    <!-- <h3>Lookah</h3> -->
                     <div>
                         <span style="color: #9aa0a6;">2022年10月30</span>
                         <span style="color: var(--el-menu-text-color);">
@@ -22,6 +21,7 @@
 import { onMounted, ref } from 'vue'
 const count = ref(0)
 const currentPage = ref(0)
+// 点击分页
 const currentPageFn = (val) => {
     currentPage.value = val - 1
     console.log(val);
@@ -33,6 +33,7 @@ const load = () => {
   count.value += 2
 }
 
+//列表数据
 const data = ref([
     [   {name:"我是第一页",content:"测试分页功能是否正常"},
         {name:"JavaScript百炼成仙",content:' Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.'},
@@ -99,8 +100,8 @@ const data = ref([
     ],
     
 ])
+//分页的长度
 const lengths = data.value.length
-console.log(data.value.length);
 
 </script>
 <style scoped>
