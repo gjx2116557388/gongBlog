@@ -15,6 +15,7 @@ const handleSelect = (key: string, keyPath: string[]) => {
 
 <template>
   <div>
+    <!-- header模块 -->
     <el-affix :offset="0">
       <div>
         <el-menu
@@ -24,8 +25,8 @@ const handleSelect = (key: string, keyPath: string[]) => {
           class="el-menu-demo"
         >
             <div>
-              <router-link to="/">
-                <!-- <el-image style="width: 100px; height: 50px" src="https://www.lovelilin.com/images/%E5%AF%8C%E5%BC%BA.png" fit="cover" /> -->
+              <router-link to="/" style=" display: flex;align-items: center;justify-content: center;">
+                <h2>Logo</h2>
               </router-link>
             </div>
             <div class="flex-grow" /> 
@@ -36,28 +37,31 @@ const handleSelect = (key: string, keyPath: string[]) => {
               </el-menu-item>
               <el-menu-item index="3">测试</el-menu-item>
               <el-menu-item index="4">关于</el-menu-item>
+               <!-- 暗黑模式切换 -->
+              <div class="switch">
+                        <el-switch
+                            v-model="isDark"
+                            style="--el-switch-on-color: #2C2C2C; --el-switch-off-color: #DCDFE6;color:red"
+                            size="large"
+                            inline-prompt
+                            :active-icon="Sunny"
+                            :inactive-icon="Moon"
+                        />
+                        {{isDark?"Dark":"Light"}}
+              </div>
           </el-menu>
       </div>
     </el-affix>
+
     <div class="main">
      <div class="router-view">
-      <!-- 暗黑模式切换 -->
-      <div class="switch">
-                <el-switch
-                    v-model="isDark"
-                    style="--el-switch-on-color: #2C2C2C; --el-switch-off-color: #DCDFE6;color:red"
-                    size="large"
-                    inline-prompt
-                    :active-icon="Sunny"
-                    :inactive-icon="Moon"
-                />
-                {{isDark?"Dark":"Light"}}
-      </div>
       <!-- 路由 -->
       <router-view></router-view>
      </div>
+     
+     <!-- 信息模块 -->
      <div class="info-wraps">
-      我是广告模块
+      我是用户信息模块
      </div>
     
     </div>

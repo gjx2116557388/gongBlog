@@ -5,10 +5,10 @@
                 <li class="infinite-list-item" v-for="(item,index) in data[currentPage]" :key="index">
                     <h2 style="color:var(--el-menu-text-color);">{{item.name}}</h2>
                     <br />
-                    <div>
-                        <span style="color: #9aa0a6;">2022年10月30</span>
+                    <div class="content">
+                        <span style="color: #9aa0a6;">2022年12月02</span>
                         <span style="color: var(--el-menu-text-color);">
-                           {{item.content}}
+                           {{strSplice(item.content)}}
                         </span>
                     </div>
                 </li>
@@ -35,8 +35,8 @@ const load = () => {
 
 //列表数据
 const data = ref([
-    [   {name:"我是第一页",content:"测试分页功能是否正常"},
-        {name:"JavaScript百炼成仙",content:' Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.'},
+    [   {name:"我是第一页",content:"测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，测试分页功能是否正常，"},
+        {name:"JavaScript百炼成仙",content:' Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.'},
         {name:"床前明月光",content:' Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.'},
         {name:"美人卷珠帘",content:' Lookah is an online headshop also known as a smoke shop offering premium design glass rigs, cool water pipes under our Lookah Glass and Tataoo Glass brands.'},
         {name:"我是第一页",content:"测试分页功能是否正常"},
@@ -102,6 +102,16 @@ const data = ref([
 ])
 //分页的长度
 const lengths = data.value.length
+
+//截取文字的长度
+const strSplice = (str)=>{
+    if (str.length >= 213) {
+        console.log(1)
+        return str.substr(0,213)+"......"
+    }else{
+        return str
+    }
+}
 
 </script>
 <style scoped>
